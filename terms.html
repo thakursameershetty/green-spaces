@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions | Green Spaces</title>
+    <meta name="description" content="Terms & Conditions for using Green Spaces services.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://greenspaces.com/terms">
+    <meta property="og:title" content="Terms & Conditions | Green Spaces">
+    <meta property="og:description" content="Terms & Conditions for using Green Spaces services.">
+    <meta property="og:image" content="https://greenspaces.com/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://greenspaces.com/terms">
+    <meta property="twitter:title" content="Terms & Conditions | Green Spaces">
+    <meta property="twitter:description" content="Terms & Conditions for using Green Spaces services.">
+    <meta property="twitter:image" content="https://greenspaces.com/og-image.jpg">
+    <link rel="canonical" href="https://greenspaces.com/terms">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            'ash-grey': '#CCD3C8',
+                            'soft-linen': '#EDEBDE',
+                            'soft-linen-2': '#F0ECDF',
+                            evergreen: '#073129',
+                            'evergreen-2': '#07342E',
+                            accent: '#C19A5B'
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 20px 40px -10px rgba(0,0,0,0.08)',
+                        'card': '0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .text-shadow-lg {
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Progressive Blur */
+        .progressive-blur-top,
+        .progressive-blur-bottom {
+            position: fixed;
+            left: 0;
+            right: 0;
+            height: 120px;
+            z-index: 40;
+            pointer-events: none;
+        }
+
+        .progressive-blur-top {
+            top: 0;
+        }
+
+        .progressive-blur-bottom {
+            bottom: 0;
+        }
+
+        .progressive-blur-top>div,
+        .progressive-blur-bottom>div {
+            position: absolute;
+            inset: 0;
+        }
+
+        /* Top Blur Layers */
+        .pbt-1 {
+            backdrop-filter: blur(0.5px);
+            -webkit-backdrop-filter: blur(0.5px);
+            mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 12.5%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 0) 37.5%);
+            -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 12.5%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 0) 37.5%);
+            z-index: 1;
+        }
+
+        .pbt-2 {
+            backdrop-filter: blur(1px);
+            -webkit-backdrop-filter: blur(1px);
+            mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 12.5%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 1) 37.5%, rgba(0, 0, 0, 0) 50%);
+            -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 12.5%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 1) 37.5%, rgba(0, 0, 0, 0) 50%);
+            z-index: 2;
+        }
+
+        .pbt-3 {
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 1) 37.5%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 62.5%);
+            -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 1) 37.5%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 62.5%);
+            z-index: 3;
+        }
+
+        .pbt-4 {
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 37.5%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 62.5%, rgba(0, 0, 0, 0) 75%);
+            -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 37.5%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 62.5%, rgba(0, 0, 0, 0) 75%);
+            z-index: 4;
+        }
+
+        .pbt-5 {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 62.5%, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 87.5%);
+            -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 62.5%, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 87.5%);
+            z-index: 5;
+        }
+
+        .pbt-6 {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 62.5%, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 1) 87.5%, rgba(0, 0, 0, 0) 100%);
+            -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 62.5%, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 1) 87.5%, rgba(0, 0, 0, 0) 100%);
+            z-index: 6;
+        }
+
+        .pbt-7 {
+            backdrop-filter: blur(32px);
+            -webkit-backdrop-filter: blur(32px);
+            mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 1) 87.5%, rgba(0, 0, 0, 1) 100%, rgba(0, 0, 0, 0) 112.5%);
+            -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 1) 87.5%, rgba(0, 0, 0, 1) 100%, rgba(0, 0, 0, 0) 112.5%);
+            z-index: 7;
+        }
+
+        .pbt-8 {
+            backdrop-filter: blur(64px);
+            -webkit-backdrop-filter: blur(64px);
+            mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 87.5%, rgba(0, 0, 0, 1) 100%);
+            -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 87.5%, rgba(0, 0, 0, 1) 100%);
+            z-index: 8;
+        }
+
+        /* Bottom Blur Layers */
+        .pbb-1 {
+            backdrop-filter: blur(0.5px);
+            -webkit-backdrop-filter: blur(0.5px);
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 12.5%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 0) 37.5%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 12.5%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 0) 37.5%);
+            z-index: 1;
+        }
+
+        .pbb-2 {
+            backdrop-filter: blur(1px);
+            -webkit-backdrop-filter: blur(1px);
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 12.5%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 1) 37.5%, rgba(0, 0, 0, 0) 50%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 12.5%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 1) 37.5%, rgba(0, 0, 0, 0) 50%);
+            z-index: 2;
+        }
+
+        .pbb-3 {
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 1) 37.5%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 62.5%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 1) 37.5%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 62.5%);
+            z-index: 3;
+        }
+
+        .pbb-4 {
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 37.5%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 62.5%, rgba(0, 0, 0, 0) 75%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 37.5%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 62.5%, rgba(0, 0, 0, 0) 75%);
+            z-index: 4;
+        }
+
+        .pbb-5 {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 62.5%, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 87.5%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 62.5%, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 87.5%);
+            z-index: 5;
+        }
+
+        .pbb-6 {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 62.5%, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 1) 87.5%, rgba(0, 0, 0, 0) 100%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 62.5%, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 1) 87.5%, rgba(0, 0, 0, 0) 100%);
+            z-index: 6;
+        }
+
+        .pbb-7 {
+            backdrop-filter: blur(32px);
+            -webkit-backdrop-filter: blur(32px);
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 1) 87.5%, rgba(0, 0, 0, 1) 100%, rgba(0, 0, 0, 0) 112.5%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 1) 87.5%, rgba(0, 0, 0, 1) 100%, rgba(0, 0, 0, 0) 112.5%);
+            z-index: 7;
+        }
+
+        .pbb-8 {
+            backdrop-filter: blur(64px);
+            -webkit-backdrop-filter: blur(64px);
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 87.5%, rgba(0, 0, 0, 1) 100%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 87.5%, rgba(0, 0, 0, 1) 100%);
+            z-index: 8;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .delay-100 {
+            animation-delay: 100ms;
+        }
+
+        .delay-200 {
+            animation-delay: 200ms;
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased text-brand-evergreen bg-brand-soft-linen">
+
+    <!-- Progressive Blur Effects -->
+    <div class="progressive-blur-top">
+        <div class="pbt-1"></div>
+        <div class="pbt-2"></div>
+        <div class="pbt-3"></div>
+        <div class="pbt-4"></div>
+        <div class="pbt-5"></div>
+        <div class="pbt-6"></div>
+        <div class="pbt-7"></div>
+        <div class="pbt-8"></div>
+    </div>
+    <div class="progressive-blur-bottom">
+        <div class="pbb-1"></div>
+        <div class="pbb-2"></div>
+        <div class="pbb-3"></div>
+        <div class="pbb-4"></div>
+        <div class="pbb-5"></div>
+        <div class="pbb-6"></div>
+        <div class="pbb-7"></div>
+        <div class="pbb-8"></div>
+    </div>
+    <!-- Navigation -->
+    <nav class="fixed top-0 inset-x-0 w-full z-50 bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <!-- Logo -->
+                <a href="index.html" id="main-logo" class="flex items-center gap-2.5 shrink-0 h-full py-1">
+                    <img src="logo.png" alt="Green Spaces Logo" class="h-10 md:h-12 w-auto object-contain">
+                    <span id="logo-text"
+                        class="font-light text-lg md:text-xl tracking-wide uppercase text-white transition-colors duration-300">Green
+                        Spaces</span>
+                </a>
+
+                <!-- Desktop Links -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html#services"
+                        class="nav-link text-sm font-semibold text-white/90 hover:text-white transition-colors duration-300">Our
+                        Services</a>
+                    <a href="index.html#offer"
+                        class="nav-link text-sm font-semibold text-white/90 hover:text-white transition-colors duration-300">Special
+                        Offer</a>
+                    <a href="index.html#faq"
+                        class="nav-link text-sm font-semibold text-white/90 hover:text-white transition-colors duration-300">FAQ</a>
+                    <a href="index.html#contact"
+                        class="nav-link text-sm font-semibold text-white/90 hover:text-white transition-colors duration-300">Contact</a>
+                </div>
+
+                <!-- CTA & Mobile Toggle -->
+                <div class="flex items-center gap-4">
+                    <a href="https://wa.me/911234567890" target="_blank" id="consult-btn"
+                        class="hidden md:inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white border border-white/30 rounded-lg hover:bg-white/10 transition-colors duration-300">
+                        Free Consultation
+                    </a>
+                    <a href="index.html#offer"
+                        class="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-brand-soft-linen bg-brand-evergreen rounded-lg hover:bg-brand-evergreen-2 transition-colors shadow-sm">
+                        Claim Offer
+                    </a>
+                    <button id="mobile-menu-btn"
+                        class="md:hidden flex items-center justify-center p-2 text-brand-evergreen transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="w-6 h-6">
+                            <line x1="4" x2="20" y1="12" y2="12" />
+                            <line x1="4" x2="20" y1="6" y2="6" />
+                            <line x1="4" x2="20" y1="18" y2="18" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-[60] bg-brand-evergreen/95 backdrop-blur-xl flex-col items-center justify-center gap-8 hidden opacity-0 transition-opacity duration-300">
+        <button id="mobile-menu-close"
+            class="absolute top-6 right-6 p-2 text-white hover:text-brand-accent transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8">
+                <path d="M18 6 6 18" />
+                <path d="m6 6 12 12" />
+            </svg>
+        </button>
+        <a href="index.html#services"
+            class="mobile-link text-3xl font-semibold text-white hover:text-brand-accent transition-colors">Our
+            Services</a>
+        <a href="index.html#offer"
+            class="mobile-link text-3xl font-semibold text-white hover:text-brand-accent transition-colors">Special
+            Offer</a>
+        <a href="index.html#faq"
+            class="mobile-link text-3xl font-semibold text-white hover:text-brand-accent transition-colors">FAQ</a>
+        <a href="index.html#contact"
+            class="mobile-link text-3xl font-semibold text-white hover:text-brand-accent transition-colors">Contact</a>
+        <a href="https://wa.me/911234567890" target="_blank"
+            class="mobile-link mt-8 px-8 py-4 text-xl font-semibold text-brand-evergreen bg-brand-soft-linen rounded-2xl hover:bg-brand-soft-linen-2 transition-colors">Free
+            Consultation</a>
+    </div>
+
+
+    <!-- Terms Content -->
+    <section class="pt-32 pb-20 bg-brand-soft-linen min-h-[60vh]">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 mb-8 md:mb-12 opacity-0 animate-fade-in-up">
+            <!-- Floating Back Button -->
+            <a href="index.html"
+                class="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-brand-soft-linen text-brand-evergreen shadow-lg hover:scale-105 hover:shadow-xl hover:bg-brand-soft-linen-2 transition-all duration-300"
+                aria-label="Back to Home">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                    class="w-5 h-5 md:w-6 md:h-6 -ml-1">
+                    <path d="m15 18-6-6 6-6" />
+                </svg>
+            </a>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-4 md:px-8 lg:px-16">
+            <h1 class="text-4xl md:text-5xl font-bold text-brand-evergreen mb-8 opacity-0 animate-fade-in-up delay-100">
+                Terms & Conditions</h1>
+            <div class="prose prose-lg text-brand-evergreen/80 space-y-6 opacity-0 animate-fade-in-up delay-200">
+                <p>Welcome to Green Spaces. By accessing this website, we assume you accept these terms and conditions.
+                    Do not continue to use Green Spaces if you do not agree to take all of the terms and conditions
+                    stated on this page.</p>
+                <h3 class="text-xl font-bold text-brand-evergreen mt-8 mb-4">1. Services</h3>
+                <p>Green Spaces provides balcony, garden, and terrace makeover services. All project timelines and
+                    quotes provided are estimates and subject to change based on actual site conditions.</p>
+                <h3 class="text-xl font-bold text-brand-evergreen mt-8 mb-4">2. Payments & Deposits</h3>
+                <p>A non-refundable deposit is required to secure your booking. Final payment is due upon completion of
+                    the makeover project. We accept major credit cards, UPI, and bank transfers.</p>
+                <h3 class="text-xl font-bold text-brand-evergreen mt-8 mb-4">3. Plant Guarantee</h3>
+                <p>We provide a 30-day health guarantee on all plants. If any plant dies within this period despite
+                    proper care, we will replace it free of charge.</p>
+                <p class="mt-8 text-sm italic">Last updated: July 2026</p>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer id="contact" class="relative bg-brand-soft-linen-2 overflow-hidden">
+        <div class="absolute bottom-0 left-0 w-full md:translate-y-[25%] pointer-events-none">
+            <img src="footer-image.png" alt="Grass decoration" class="w-full h-auto opacity-90">
+        </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8 pt-16 pb-24 md:pb-32">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-6 md:gap-10">
+                <div class="col-span-2 md:col-span-1 space-y-4">
+                    <a href="#" class="flex items-center gap-3 -ml-2">
+                        <img src="logo.png" alt="Green Spaces Logo" class="h-12 md:h-14 w-auto object-contain">
+                        <span class="font-light text-2xl text-brand-evergreen tracking-wide uppercase">Green
+                            Spaces</span>
+                    </a>
+                    <div class="flex items-center gap-2">
+                        <p class="text-brand-evergreen/90 font-medium text-sm md:text-base">Balcony garden terrace
+                            makeovers.</p>
+                    </div>
+                </div>
+
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="font-bold text-brand-evergreen mb-4 md:mb-6 uppercase text-xs md:text-sm tracking-wider">
+                        Contact
+                    </h3>
+                    <ul class="space-y-4 md:space-y-4 text-brand-evergreen/80 text-[13px] md:text-sm">
+                        <li class="flex flex-col">
+                            <span class="font-semibold text-brand-evergreen text-xs">Phone</span>
+                            <a href="tel:+911234567890" class="hover:text-brand-accent transition-colors">+91 12345
+                                67890</a>
+                        </li>
+                        <li class="flex flex-col">
+                            <span class="font-semibold text-brand-evergreen text-xs">WhatsApp</span>
+                            <a href="https://wa.me/911234567890" class="hover:text-brand-accent transition-colors">+91
+                                12345 67890</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="font-bold text-brand-evergreen mb-4 md:mb-6 uppercase text-xs md:text-sm tracking-wider">
+                        Social & Location
+                    </h3>
+                    <ul class="space-y-4 md:space-y-4 text-brand-evergreen/80 text-[13px] md:text-sm">
+                        <li class="flex flex-col">
+                            <span class="font-semibold text-brand-evergreen text-xs">Instagram</span>
+                            <a href="#"
+                                class="hover:text-brand-accent transition-colors truncate">@GreenSpaces_Official</a>
+                        </li>
+                        <li class="flex flex-col">
+                            <span class="font-semibold text-brand-evergreen text-xs">Location</span>
+                            <span>Visakhapatnam, India</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-span-2 md:col-span-1">
+                    <h3 class="font-bold text-brand-evergreen mb-4 md:mb-6 uppercase text-xs md:text-sm tracking-wider">
+                        Legal</h3>
+                    <ul class="flex flex-row md:flex-col gap-6 md:gap-4 text-brand-evergreen/80 text-[13px] md:text-sm">
+                        <li><a href="terms.html" class="hover:text-brand-accent transition-colors">Terms &
+                                Conditions</a></li>
+                        <li><a href="privacy.html" class="hover:text-brand-accent transition-colors">Privacy Policy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-brand-ash-grey/40 text-center text-sm text-brand-evergreen/60">
+                <p>© 2026 Green Spaces. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const links = document.querySelectorAll('.nav-link');
+        const consultBtn = document.getElementById('consult-btn');
+        const mainLogo = document.getElementById('main-logo');
+        const logoText = document.getElementById('logo-text');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const darkSections = document.querySelectorAll('.dark-section');
+        const navHeight = 80;
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+
+            // Check if navbar is over a dark section
+            let overDark = false;
+            const navCenter = scrollY + (navHeight / 2);
+
+            darkSections.forEach(sec => {
+                const rect = sec.getBoundingClientRect();
+                const secTop = scrollY + rect.top;
+                const secBottom = scrollY + rect.bottom;
+                if (navCenter >= secTop && navCenter <= secBottom) {
+                    overDark = true;
+                }
+            });
+
+            if (!overDark) {
+                // Light background -> dark text
+                links.forEach(link => {
+                    link.classList.remove('text-white/90', 'hover:text-white');
+                    link.classList.add('text-brand-evergreen', 'hover:text-brand-evergreen-2');
+                });
+                consultBtn.classList.remove('text-white', 'border-white/30', 'hover:bg-white/10');
+                consultBtn.classList.add('text-brand-evergreen', 'border-brand-evergreen/30', 'hover:bg-brand-ash-grey');
+                if (logoText) {
+                    logoText.classList.remove('text-white');
+                    logoText.classList.add('text-brand-evergreen');
+                }
+                if (mobileMenuBtn) {
+                    mobileMenuBtn.classList.remove('text-white');
+                    mobileMenuBtn.classList.add('text-brand-evergreen');
+                }
+            } else {
+                // Dark background -> white text
+                links.forEach(link => {
+                    link.classList.add('text-white/90', 'hover:text-white');
+                    link.classList.remove('text-brand-evergreen', 'hover:text-brand-evergreen-2');
+                });
+                consultBtn.classList.add('text-white', 'border-white/30', 'hover:bg-white/10');
+                consultBtn.classList.remove('text-brand-evergreen', 'border-brand-evergreen/30', 'hover:bg-brand-ash-grey');
+                if (logoText) {
+                    logoText.classList.add('text-white');
+                    logoText.classList.remove('text-brand-evergreen');
+                }
+                if (mobileMenuBtn) {
+                    mobileMenuBtn.classList.add('text-white');
+                    mobileMenuBtn.classList.remove('text-brand-evergreen');
+                }
+            }
+        });
+
+        // Mobile Menu Logic
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-link');
+
+        function openMobileMenu() {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+            // slight delay to allow display:flex to apply before animating opacity
+            setTimeout(() => {
+                mobileMenu.classList.remove('opacity-0');
+                mobileMenu.classList.add('opacity-100');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('opacity-100');
+            mobileMenu.classList.add('opacity-0');
+            setTimeout(() => {
+                mobileMenu.classList.remove('flex');
+                mobileMenu.classList.add('hidden');
+            }, 300);
+            document.body.style.overflow = '';
+        }
+
+        if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMobileMenu);
+        if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeMobileMenu);
+
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Intersection Observer to hide bottom blur when footer is visible
+        const bottomBlur = document.querySelector('.progressive-blur-bottom');
+        const footer = document.getElementById('contact');
+
+        if (bottomBlur && footer) {
+            bottomBlur.style.transition = 'opacity 0.3s ease-in-out';
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        bottomBlur.style.opacity = '0';
+                        bottomBlur.style.pointerEvents = 'none';
+                    } else {
+                        bottomBlur.style.opacity = '1';
+                        bottomBlur.style.pointerEvents = 'auto';
+                    }
+                });
+            }, { rootMargin: '0px' });
+            observer.observe(footer);
+        }
+
+        // Trigger scroll event on load to set initial colors based on scroll position
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+
+
+</body>
+
+</html>

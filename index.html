@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Spaces | Balcony & Terrace Makeovers</title>
+    <meta name="description"
+        content="Transform your balcony or terrace into a lush green escape. Green Spaces provides premium, low-maintenance outdoor makeovers.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://greenspaces.com/">
+    <meta property="og:title" content="Green Spaces | Balcony & Terrace Makeovers">
+    <meta property="og:description"
+        content="Transform your balcony or terrace into a lush green escape. Green Spaces provides premium, low-maintenance outdoor makeovers.">
+    <meta property="og:image" content="https://greenspaces.com/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://greenspaces.com/">
+    <meta property="twitter:title" content="Green Spaces | Balcony & Terrace Makeovers">
+    <meta property="twitter:description"
+        content="Transform your balcony or terrace into a lush green escape. Green Spaces provides premium, low-maintenance outdoor makeovers.">
+    <meta property="twitter:image" content="https://greenspaces.com/og-image.jpg">
+    <link rel="canonical" href="https://greenspaces.com/">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            'ash-grey': '#CCD3C8',
+                            'soft-linen': '#EDEBDE',
+                            'soft-linen-2': '#F0ECDF',
+                            evergreen: '#073129',
+                            'evergreen-2': '#07342E',
+                            accent: '#C19A5B'
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 20px 40px -10px rgba(0,0,0,0.08)',
+                        'card': '0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .text-shadow-lg {
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Progressive Blur */
+        .progressive-blur-top,
+        .progressive-blur-bottom {
+            position: fixed;
+            left: 0;
+            right: 0;
+            height: 120px;
+            z-index: 40;
+            pointer-events: none;
+        }
+
+        .progressive-blur-top {
+            top: 0;
+        }
+
+        .progressive-blur-bottom {
+            bottom: 0;
+        }
+
+        .progressive-blur-top>div,
+        .progressive-blur-bottom>div {
+            position: absolute;
+            inset: 0;
+        }
+
+        /* Top Blur Layers */
+        .pbt-1 {
+            backdrop-filter: blur(0.5px);
+            -webkit-backdrop-filter: blur(0.5px);
+            mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 12.5%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 0) 37.5%);
+            -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 12.5%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 0) 37.5%);
+            z-index: 1;
+        }
+
+        .pbt-2 {
+            backdrop-filter: blur(1px);
+            -webkit-backdrop-filter: blur(1px);
+            mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 12.5%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 1) 37.5%, rgba(0, 0, 0, 0) 50%);
+            -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 12.5%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 1) 37.5%, rgba(0, 0, 0, 0) 50%);
+            z-index: 2;
+        }
+
+        .pbt-3 {
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 1) 37.5%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 62.5%);
+            -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 1) 37.5%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 62.5%);
+            z-index: 3;
+        }
+
+        .pbt-4 {
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 37.5%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 62.5%, rgba(0, 0, 0, 0) 75%);
+            -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 37.5%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 62.5%, rgba(0, 0, 0, 0) 75%);
+            z-index: 4;
+        }
+
+        .pbt-5 {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 62.5%, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 87.5%);
+            -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 62.5%, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 87.5%);
+            z-index: 5;
+        }
+
+        .pbt-6 {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 62.5%, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 1) 87.5%, rgba(0, 0, 0, 0) 100%);
+            -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 62.5%, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 1) 87.5%, rgba(0, 0, 0, 0) 100%);
+            z-index: 6;
+        }
+
+        .pbt-7 {
+            backdrop-filter: blur(32px);
+            -webkit-backdrop-filter: blur(32px);
+            mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 1) 87.5%, rgba(0, 0, 0, 1) 100%, rgba(0, 0, 0, 0) 112.5%);
+            -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 1) 87.5%, rgba(0, 0, 0, 1) 100%, rgba(0, 0, 0, 0) 112.5%);
+            z-index: 7;
+        }
+
+        .pbt-8 {
+            backdrop-filter: blur(64px);
+            -webkit-backdrop-filter: blur(64px);
+            mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 87.5%, rgba(0, 0, 0, 1) 100%);
+            -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 87.5%, rgba(0, 0, 0, 1) 100%);
+            z-index: 8;
+        }
+
+        /* Bottom Blur Layers */
+        .pbb-1 {
+            backdrop-filter: blur(0.5px);
+            -webkit-backdrop-filter: blur(0.5px);
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 12.5%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 0) 37.5%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 12.5%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 0) 37.5%);
+            z-index: 1;
+        }
+
+        .pbb-2 {
+            backdrop-filter: blur(1px);
+            -webkit-backdrop-filter: blur(1px);
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 12.5%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 1) 37.5%, rgba(0, 0, 0, 0) 50%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 12.5%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 1) 37.5%, rgba(0, 0, 0, 0) 50%);
+            z-index: 2;
+        }
+
+        .pbb-3 {
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 1) 37.5%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 62.5%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 1) 37.5%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 62.5%);
+            z-index: 3;
+        }
+
+        .pbb-4 {
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 37.5%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 62.5%, rgba(0, 0, 0, 0) 75%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 37.5%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 62.5%, rgba(0, 0, 0, 0) 75%);
+            z-index: 4;
+        }
+
+        .pbb-5 {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 62.5%, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 87.5%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 62.5%, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 87.5%);
+            z-index: 5;
+        }
+
+        .pbb-6 {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 62.5%, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 1) 87.5%, rgba(0, 0, 0, 0) 100%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 62.5%, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 1) 87.5%, rgba(0, 0, 0, 0) 100%);
+            z-index: 6;
+        }
+
+        .pbb-7 {
+            backdrop-filter: blur(32px);
+            -webkit-backdrop-filter: blur(32px);
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 1) 87.5%, rgba(0, 0, 0, 1) 100%, rgba(0, 0, 0, 0) 112.5%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 1) 87.5%, rgba(0, 0, 0, 1) 100%, rgba(0, 0, 0, 0) 112.5%);
+            z-index: 7;
+        }
+
+        .pbb-8 {
+            backdrop-filter: blur(64px);
+            -webkit-backdrop-filter: blur(64px);
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 87.5%, rgba(0, 0, 0, 1) 100%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 87.5%, rgba(0, 0, 0, 1) 100%);
+            z-index: 8;
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased text-brand-evergreen bg-brand-soft-linen">
+
+    <!-- Progressive Blur Effects -->
+    <div class="progressive-blur-top">
+        <div class="pbt-1"></div>
+        <div class="pbt-2"></div>
+        <div class="pbt-3"></div>
+        <div class="pbt-4"></div>
+        <div class="pbt-5"></div>
+        <div class="pbt-6"></div>
+        <div class="pbt-7"></div>
+        <div class="pbt-8"></div>
+    </div>
+    <div class="progressive-blur-bottom">
+        <div class="pbb-1"></div>
+        <div class="pbb-2"></div>
+        <div class="pbb-3"></div>
+        <div class="pbb-4"></div>
+        <div class="pbb-5"></div>
+        <div class="pbb-6"></div>
+        <div class="pbb-7"></div>
+        <div class="pbb-8"></div>
+    </div>
+    <!-- Navigation -->
+    <nav class="fixed top-0 inset-x-0 w-full z-50 bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <!-- Logo -->
+                <a href="#" id="main-logo" class="flex items-center gap-2.5 shrink-0 h-full py-1">
+                    <img src="logo.png" alt="Green Spaces Logo" class="h-10 md:h-12 w-auto object-contain">
+                    <span id="logo-text"
+                        class="font-light text-lg md:text-xl tracking-wide uppercase text-white transition-colors duration-300">Green
+                        Spaces</span>
+                </a>
+
+                <!-- Desktop Links -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#services"
+                        class="nav-link text-sm font-semibold text-white/90 hover:text-white transition-colors duration-300">Our
+                        Services</a>
+                    <a href="#offer"
+                        class="nav-link text-sm font-semibold text-white/90 hover:text-white transition-colors duration-300">Special
+                        Offer</a>
+                    <a href="#faq"
+                        class="nav-link text-sm font-semibold text-white/90 hover:text-white transition-colors duration-300">FAQ</a>
+                    <a href="#contact"
+                        class="nav-link text-sm font-semibold text-white/90 hover:text-white transition-colors duration-300">Contact</a>
+                </div>
+
+                <!-- CTA & Mobile Toggle -->
+                <div class="flex items-center gap-4">
+                    <a href="https://wa.me/911234567890" target="_blank" id="consult-btn"
+                        class="hidden md:inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white border border-white/30 rounded-lg hover:bg-white/10 transition-colors duration-300">
+                        Free Consultation
+                    </a>
+                    <a href="#offer"
+                        class="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-brand-evergreen bg-brand-soft-linen rounded-lg hover:bg-brand-soft-linen-2 transition-colors shadow-sm">
+                        Claim Offer
+                    </a>
+
+                    <!-- Morph Menu Wrapper -->
+                    <div id="morph-menu-wrapper" class="md:hidden relative w-[36px] h-[36px]">
+                        <!-- Yellow background layer -->
+                        <div id="morph-bg"
+                            class="absolute inset-0 z-0 bg-brand-soft-linen transition-transform duration-[800ms] ease-[cubic-bezier(0.22,1,0.36,1)] rounded-full origin-center shadow-sm">
+                        </div>
+
+                        <!-- Expanding dark circle -->
+                        <div id="morph-circle"
+                            class="absolute inset-0 z-10 bg-brand-evergreen transition-transform duration-[800ms] ease-[cubic-bezier(0.22,1,0.36,1)] rounded-full origin-center scale-0">
+                        </div>
+
+                        <!-- Hamburger / Close Icon -->
+                        <div id="morph-bottom-bar"
+                            class="absolute inset-0 z-[100] flex items-center justify-center cursor-pointer">
+                            <div class="relative w-[20px] h-[20px] flex items-center justify-center">
+                                <span id="morph-line-1"
+                                    class="absolute block w-[16px] h-[2px] rounded-full bg-brand-evergreen -translate-y-[4px] transition-all duration-[400ms] ease-[cubic-bezier(0.22,1,0.36,1)]"></span>
+                                <span id="morph-line-2"
+                                    class="absolute block w-[16px] h-[2px] rounded-full bg-brand-evergreen translate-y-[4px] transition-all duration-[400ms] ease-[cubic-bezier(0.22,1,0.36,1)]"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Full Screen Links Overlay -->
+        <div id="morph-links-overlay"
+            class="fixed inset-0 z-[90] flex-col items-center justify-center pointer-events-none opacity-0 transition-opacity duration-[400ms] hidden">
+            <div id="morph-links" class="flex flex-col gap-8 items-center justify-center w-full h-full">
+                <a href="#services"
+                    class="text-[#f7f1ed] text-[32px] uppercase leading-none font-semibold tracking-wide morph-link transition-transform duration-500 translate-y-[20px] hover:text-brand-accent">Services</a>
+                <a href="#offer"
+                    class="text-[#f7f1ed] text-[32px] uppercase leading-none font-semibold tracking-wide morph-link transition-transform duration-500 translate-y-[20px] delay-[50ms] hover:text-brand-accent">Offer</a>
+                <a href="#faq"
+                    class="text-[#f7f1ed] text-[32px] uppercase leading-none font-semibold tracking-wide morph-link transition-transform duration-500 translate-y-[20px] delay-[100ms] hover:text-brand-accent">FAQ</a>
+                <a href="#contact"
+                    class="text-[#f7f1ed] text-[32px] uppercase leading-none font-semibold tracking-wide morph-link transition-transform duration-500 translate-y-[20px] delay-[150ms] hover:text-brand-accent">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!-- Hero Section -->
+    <section class="dark-section relative flex items-center justify-center w-full bg-gray-900 min-h-[100svh]">
+        <!-- Background Image -->
+        <img alt="Beautiful Balcony Oasis" class="absolute inset-0 object-cover w-full h-full opacity-70"
+            src="hero-image.png">
+
+        <div class="relative z-10 text-center px-4 max-w-7xl mx-auto w-full">
+            <h1
+                class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 text-shadow-lg leading-tight tracking-tight text-balance">
+                Transform your balcony, garden & terrace
+                <span
+                    class="block text-brand-accent italic font-serif normal-case mt-2 sm:mt-3 text-4xl sm:text-5xl md:text-5xl lg:text-5xl font-normal">into
+                    a beautiful oasis!</span>
+            </h1>
+            <p
+                class="mt-4 sm:mt-6 text-white/90 text-[17px] md:text-lg font-light text-shadow-lg max-w-2xl mx-auto mb-8 leading-relaxed text-pretty px-4 md:px-0">
+                Whether it's your morning coffee, evening relaxation or family time, we create green spaces that bring
+                nature closer to you.
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#services"
+                    class="inline-flex items-center justify-center h-12 px-8 rounded-lg text-sm font-medium bg-brand-soft-linen text-brand-evergreen hover:bg-brand-soft-linen-2 transition-colors">
+                    Explore Services
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <a href="#services"
+            class="absolute bottom-8 left-1/2 -translate-x-1/2 z-40 text-white/70 hover:text-white transition-colors cursor-pointer flex flex-col items-center gap-2"
+            aria-label="Scroll down to services">
+            <span class="text-xs font-light tracking-[0.2em] uppercase">Scroll</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="animate-bounce mt-1 opacity-80">
+                <path d="m6 9 6 6 6-6" />
+            </svg>
+        </a>
+    </section>
+
+    <!-- Services Gallery Section (Replicating Spacely's Grid) -->
+    <section id="services" class="py-20 px-4 md:px-8 lg:px-16 bg-brand-soft-linen">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-brand-evergreen">Our Services</h2>
+            <p class="text-center text-brand-evergreen/70 mb-12 max-w-2xl mx-auto">Everything you need for the perfect
+                outdoor
+                escape.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Service 1 -->
+                <div
+                    class="group relative overflow-hidden rounded-xl cursor-pointer shadow-card hover:shadow-soft transition-all duration-300">
+                    <div class="aspect-square overflow-hidden">
+                        <img alt="Smart Balcony Makeovers"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            src="smart-balcony-makeovers.jpg">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transition-transform duration-300">
+                        <h3 class="text-2xl font-bold mb-1">Smart Balcony Makeovers</h3>
+                        <p class="text-sm text-white/80 transition-opacity duration-300">
+                            Modern & space-saving designs</p>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div
+                    class="group relative overflow-hidden rounded-xl cursor-pointer shadow-card hover:shadow-soft transition-all duration-300">
+                    <div class="aspect-square overflow-hidden">
+                        <img alt="Terrace Gardens"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            src="terrace-gardens.jpg">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transition-transform duration-300">
+                        <h3 class="text-2xl font-bold mb-1">Terrace Gardens</h3>
+                        <p class="text-sm text-white/80 transition-opacity duration-300">
+                            More plants in limited space</p>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div
+                    class="group relative overflow-hidden rounded-xl cursor-pointer shadow-card hover:shadow-soft transition-all duration-300">
+                    <div class="aspect-square overflow-hidden">
+                        <img alt="Decking & Grass"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            src="decking-grass.jpg">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transition-transform duration-300">
+                        <h3 class="text-2xl font-bold mb-1">Decking & Grass</h3>
+                        <p class="text-sm text-white/80 transition-opacity duration-300">
+                            Stylish. Durable. Low Maintenance.</p>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div
+                    class="group relative overflow-hidden rounded-xl cursor-pointer shadow-card hover:shadow-soft transition-all duration-300">
+                    <div class="aspect-square overflow-hidden">
+                        <img alt="Customized Planters"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            src="customised-planters.png">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transition-transform duration-300">
+                        <h3 class="text-2xl font-bold mb-1">Customized Planters</h3>
+                        <p class="text-sm text-white/80 transition-opacity duration-300">
+                            Designed to match your space</p>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div
+                    class="group relative overflow-hidden rounded-xl cursor-pointer shadow-card hover:shadow-soft transition-all duration-300">
+                    <div class="aspect-square overflow-hidden">
+                        <img alt="Fairy Lights"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            src="fairy-lights.jpg">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transition-transform duration-300">
+                        <h3 class="text-2xl font-bold mb-1">Fairy Lights</h3>
+                        <p class="text-sm text-white/80 transition-opacity duration-300">
+                            Create the perfect ambiance</p>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div
+                    class="group relative overflow-hidden rounded-xl cursor-pointer shadow-card hover:shadow-soft transition-all duration-300">
+                    <div class="aspect-square overflow-hidden">
+                        <img alt="Low Maintenance Plants"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            src="low-maintenance.jpg">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transition-transform duration-300">
+                        <h3 class="text-2xl font-bold mb-1">Low Maintenance</h3>
+                        <p class="text-sm text-white/80 transition-opacity duration-300">
+                            Perfect for your busy lifestyle</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action (Premium Floating Card Design) -->
+    <section id="offer" class="bg-brand-soft-linen py-12 md:py-20 px-4 md:px-8 lg:px-16">
+        <div
+            class="dark-section max-w-7xl mx-auto bg-brand-evergreen rounded-[2.5rem] p-8 md:p-16 relative overflow-hidden shadow-2xl">
+            <!-- Decorative Background Elements -->
+            <div
+                class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-brand-accent/20 rounded-full blur-3xl pointer-events-none">
+            </div>
+            <div
+                class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-brand-soft-linen/10 rounded-full blur-3xl pointer-events-none">
+            </div>
+
+            <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
+
+                <!-- Left Content -->
+                <div class="flex-1 space-y-8 text-center lg:text-left">
+                    <div
+                        class="inline-block bg-brand-accent/20 border border-brand-accent/30 text-brand-accent text-xs font-bold px-4 py-2 rounded-full uppercase tracking-widest">
+                        Offer Valid From July 1st
+                    </div>
+
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                        Grand Launch <br class="hidden lg:block" />Special!
+                    </h2>
+
+                    <p class="text-white/80 text-lg md:text-xl max-w-xl mx-auto lg:mx-0">
+                        Be among the first 10 customers to transform your space and choose your exclusive reward.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <div
+                            class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 text-center w-full sm:w-auto flex-1 max-w-[200px]">
+                            <div class="text-4xl font-black text-brand-accent mb-2">10%</div>
+                            <div class="text-white/80 text-xs uppercase tracking-widest font-semibold">Flat Discount
+                            </div>
+                        </div>
+                        <div class="text-white/40 font-serif italic text-xl px-2">or</div>
+                        <div
+                            class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 text-center w-full sm:w-auto flex-1 max-w-[200px]">
+                            <div class="text-4xl font-black text-brand-accent mb-2">FREE</div>
+                            <div class="text-white/80 text-xs uppercase tracking-widest font-semibold">Lighting Setup
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Content (CTA Form/Button Area) -->
+                <div class="w-full lg:w-[400px] shrink-0">
+                    <div class="bg-brand-soft-linen p-8 md:p-10 rounded-[2rem] shadow-xl text-center relative z-20">
+                        <h3 class="text-2xl font-bold text-brand-evergreen mb-3">Claim Your Spot</h3>
+                        <p class="text-brand-evergreen/70 text-sm mb-8">Slots are filling up fast. Message us to secure
+                            your launch offer!</p>
+
+                        <a href="https://wa.me/911234567890" target="_blank"
+                            class="flex items-center justify-center gap-3 w-full bg-brand-evergreen text-brand-soft-linen py-4 rounded-xl font-semibold hover:bg-brand-evergreen-2 transition-all transform hover:scale-[1.02] active:scale-95 shadow-md">
+                            <!-- WhatsApp Icon SVG -->
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+                            </svg>
+                            WhatsApp Us
+                        </a>
+
+                        <div
+                            class="mt-6 flex items-center justify-center gap-2 text-brand-evergreen/50 text-xs font-medium">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                                </path>
+                            </svg>
+                            100% Free Consultation
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 px-4 md:px-8 lg:px-16 bg-brand-soft-linen">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-brand-evergreen">Frequently Asked Questions
+            </h2>
+            <p class="text-center text-brand-evergreen/70 mb-12 max-w-2xl mx-auto">Find answers to the most common
+                questions about our makeovers.</p>
+
+            <div id="faq-root" class="mx-auto flex w-full max-w-7xl flex-col gap-4">
+                <!-- JS will mount the interactive FAQ here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="relative bg-brand-soft-linen-2 overflow-hidden">
+        <div class="absolute bottom-0 left-0 w-full md:translate-y-[25%] pointer-events-none">
+            <img src="footer-image.png" alt="Grass decoration" class="w-full h-auto opacity-90">
+        </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8 pt-16 pb-24 md:pb-32">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-6 md:gap-10">
+                <div class="col-span-2 md:col-span-1 space-y-4">
+                    <a href="#" class="flex items-center gap-3 -ml-2">
+                        <img src="logo.png" alt="Green Spaces Logo" class="h-12 md:h-14 w-auto object-contain">
+                        <span class="font-light text-2xl text-brand-evergreen tracking-wide uppercase">Green
+                            Spaces</span>
+                    </a>
+                    <div class="flex items-center gap-2">
+                        <p class="text-brand-evergreen/90 font-medium text-sm md:text-base">Balcony garden terrace
+                            makeovers.</p>
+                    </div>
+                </div>
+
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="font-bold text-brand-evergreen mb-4 md:mb-6 uppercase text-xs md:text-sm tracking-wider">
+                        Contact
+                    </h3>
+                    <ul class="space-y-4 md:space-y-4 text-brand-evergreen/80 text-[13px] md:text-sm">
+                        <li class="flex flex-col">
+                            <span class="font-semibold text-brand-evergreen text-xs">Phone</span>
+                            <a href="tel:+911234567890" class="hover:text-brand-accent transition-colors">+91 12345
+                                67890</a>
+                        </li>
+                        <li class="flex flex-col">
+                            <span class="font-semibold text-brand-evergreen text-xs">WhatsApp</span>
+                            <a href="https://wa.me/911234567890" class="hover:text-brand-accent transition-colors">+91
+                                12345 67890</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="font-bold text-brand-evergreen mb-4 md:mb-6 uppercase text-xs md:text-sm tracking-wider">
+                        Social & Location
+                    </h3>
+                    <ul class="space-y-4 md:space-y-4 text-brand-evergreen/80 text-[13px] md:text-sm">
+                        <li class="flex flex-col">
+                            <span class="font-semibold text-brand-evergreen text-xs">Instagram</span>
+                            <a href="#"
+                                class="hover:text-brand-accent transition-colors truncate">@GreenSpaces_Official</a>
+                        </li>
+                        <li class="flex flex-col">
+                            <span class="font-semibold text-brand-evergreen text-xs">Location</span>
+                            <span>Visakhapatnam, India</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-span-2 md:col-span-1">
+                    <h3 class="font-bold text-brand-evergreen mb-4 md:mb-6 uppercase text-xs md:text-sm tracking-wider">
+                        Legal</h3>
+                    <ul class="flex flex-row md:flex-col gap-6 md:gap-4 text-brand-evergreen/80 text-[13px] md:text-sm">
+                        <li><a href="terms.html" class="hover:text-brand-accent transition-colors">Terms &
+                                Conditions</a></li>
+                        <li><a href="privacy.html" class="hover:text-brand-accent transition-colors">Privacy Policy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-brand-ash-grey/40 text-center text-sm text-brand-evergreen/60">
+                <p>© 2026 Green Spaces. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const links = document.querySelectorAll('.nav-link');
+        const consultBtn = document.getElementById('consult-btn');
+        const mainLogo = document.getElementById('main-logo');
+        const logoText = document.getElementById('logo-text');
+        const darkSections = document.querySelectorAll('.dark-section');
+        const navHeight = 80;
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+
+            // Check if navbar is over a dark section
+            let overDark = false;
+            const navCenter = scrollY + (navHeight / 2);
+
+            darkSections.forEach(sec => {
+                const rect = sec.getBoundingClientRect();
+                const secTop = scrollY + rect.top;
+                const secBottom = scrollY + rect.bottom;
+                if (navCenter >= secTop && navCenter <= secBottom) {
+                    overDark = true;
+                }
+            });
+
+            if (!overDark) {
+                // Light background -> dark text
+                links.forEach(link => {
+                    link.classList.remove('text-white/90', 'hover:text-white');
+                    link.classList.add('text-brand-evergreen', 'hover:text-brand-evergreen-2');
+                });
+                consultBtn.classList.remove('text-white', 'border-white/30', 'hover:bg-white/10');
+                consultBtn.classList.add('text-brand-evergreen', 'border-brand-evergreen/30', 'hover:bg-brand-ash-grey');
+                if (logoText) {
+                    logoText.classList.remove('text-white');
+                    logoText.classList.add('text-brand-evergreen');
+                }
+            } else {
+                // Dark background -> white text
+                links.forEach(link => {
+                    link.classList.add('text-white/90', 'hover:text-white');
+                    link.classList.remove('text-brand-evergreen', 'hover:text-brand-evergreen-2');
+                });
+                consultBtn.classList.add('text-white', 'border-white/30', 'hover:bg-white/10');
+                consultBtn.classList.remove('text-brand-evergreen', 'border-brand-evergreen/30', 'hover:bg-brand-ash-grey');
+                if (logoText) {
+                    logoText.classList.add('text-white');
+                    logoText.classList.remove('text-brand-evergreen');
+                }
+            }
+        });
+
+        // Liquid Morph Floating Menu Logic
+        const morphMenuWrapper = document.getElementById('morph-menu-wrapper');
+        const morphBg = document.getElementById('morph-bg');
+        const morphCircle = document.getElementById('morph-circle');
+        const morphLinksContainer = document.getElementById('morph-links');
+        const morphLinksOverlay = document.getElementById('morph-links-overlay');
+        const morphLinks = document.querySelectorAll('.morph-link');
+        const morphBottomBar = document.getElementById('morph-bottom-bar');
+        const morphLine1 = document.getElementById('morph-line-1');
+        const morphLine2 = document.getElementById('morph-line-2');
+
+        let isMorphOpen = false;
+
+        function toggleMorphMenu() {
+            isMorphOpen = !isMorphOpen;
+
+            if (isMorphOpen) {
+                // Backgrounds expand to full screen via scale
+                morphBg.style.transform = 'scale(100)';
+
+                setTimeout(() => {
+                    morphCircle.style.transform = 'scale(100)';
+                    morphCircle.classList.remove('scale-0');
+                }, 100);
+
+                // Hamburger to X
+                morphLine1.classList.remove('-translate-y-[4px]', 'bg-brand-evergreen');
+                morphLine1.classList.add('rotate-45', 'translate-y-0', 'bg-[#f7f1ed]');
+                morphLine2.classList.remove('translate-y-[4px]', 'bg-brand-evergreen');
+                morphLine2.classList.add('-rotate-45', 'translate-y-0', 'bg-[#f7f1ed]');
+
+                // Show Links Overlay
+                morphLinksOverlay.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+
+                // Allow flex to apply before animating opacity
+                requestAnimationFrame(() => {
+                    morphLinksOverlay.classList.remove('pointer-events-none', 'opacity-0');
+                    morphLinksOverlay.classList.add('pointer-events-auto', 'opacity-100', 'flex');
+
+                    // Animate links in
+                    morphLinks.forEach(link => {
+                        link.style.transform = 'translateY(0)';
+                    });
+                });
+
+            } else {
+                // Hide Links Overlay
+                morphLinksOverlay.classList.remove('pointer-events-auto', 'opacity-100');
+                morphLinksOverlay.classList.add('pointer-events-none', 'opacity-0');
+
+                // Animate links out
+                morphLinks.forEach(link => {
+                    link.style.transform = 'translateY(20px)';
+                });
+
+                setTimeout(() => {
+                    morphLinksOverlay.classList.add('hidden');
+                    morphLinksOverlay.classList.remove('flex');
+                }, 400);
+
+                // Backgrounds shrink
+                morphCircle.style.transform = '';
+                morphCircle.classList.add('scale-0');
+
+                setTimeout(() => {
+                    morphBg.style.transform = 'scale(1)';
+                }, 100);
+
+                // X to Hamburger
+                morphLine1.classList.add('-translate-y-[4px]', 'bg-brand-evergreen');
+                morphLine1.classList.remove('rotate-45', 'translate-y-0', 'bg-[#f7f1ed]');
+                morphLine2.classList.add('translate-y-[4px]', 'bg-brand-evergreen');
+                morphLine2.classList.remove('-rotate-45', 'translate-y-0', 'bg-[#f7f1ed]');
+
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+        }
+
+        if (morphMenuWrapper) {
+            // Click on the morph menu wrapper to toggle it
+            morphBottomBar.addEventListener('click', (e) => {
+                // Prevent toggling if clicking a link
+                if (e.target.closest('a')) return;
+                toggleMorphMenu();
+            });
+
+            // Close when clicking outside
+            document.addEventListener('click', (e) => {
+                if (isMorphOpen && !morphMenuWrapper.contains(e.target) && !morphLinksOverlay.contains(e.target)) {
+                    toggleMorphMenu();
+                }
+            });
+
+            // Close when clicking a link
+            morphLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (isMorphOpen) toggleMorphMenu();
+                });
+            });
+        }
+
+        // Intersection Observer to hide bottom blur when footer is visible
+        const bottomBlur = document.querySelector('.progressive-blur-bottom');
+        const footer = document.getElementById('contact');
+
+        if (bottomBlur && footer) {
+            bottomBlur.style.transition = 'opacity 0.3s ease-in-out';
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        bottomBlur.style.opacity = '0';
+                        bottomBlur.style.pointerEvents = 'none';
+                    } else {
+                        bottomBlur.style.opacity = '1';
+                        bottomBlur.style.pointerEvents = 'auto';
+                    }
+                });
+            }, { rootMargin: '0px' });
+            observer.observe(footer);
+        }
+
+        // Trigger scroll event on load to set initial colors based on scroll position
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+
+    <!-- FAQ Interactive Logic (Vanilla JS implementation of FaqPro) -->
+    <script>
+        const faqData = [
+            {
+                id: "timeframe",
+                question: "How long does a typical balcony makeover take?",
+                answer: "A typical balcony makeover takes between 2 to 4 days, depending on the complexity of the design and the size of your space."
+            },
+            {
+                id: "maintenance",
+                question: "Do you provide maintenance services for the plants?",
+                answer: "Yes! We offer monthly maintenance packages where our experts will visit your space to prune, fertilize, and ensure all your plants stay healthy and vibrant."
+            },
+            {
+                id: "guarantee",
+                question: "What happens if a plant dies shortly after installation?",
+                answer: "We provide a 30-day health guarantee on all plants we install. If any plant doesn't survive its first month despite proper care, we will replace it for free."
+            },
+            {
+                id: "artificial",
+                question: "Can you work with artificial grass and plants instead of real ones?",
+                answer: "Absolutely! We specialize in both natural and high-quality artificial setups depending on your lifestyle and maintenance preferences."
+            },
+            {
+                id: "offer",
+                question: "How do I claim the Grand Launch Offer?",
+                answer: "Simply click the 'WhatsApp Us' button to send us a direct message. If you are among the first 10 customers, the offer will be automatically applied to your quote!"
+            }
+        ];
+
+        const faqRoot = document.getElementById('faq-root');
+        let currentQuery = "";
+        let openFaqId = faqData[0].id; // default open first
+        let isFaqFocused = false;
+
+        function escapeRegExp(string) {
+            return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        }
+
+        function highlightText(text, query) {
+            if (!query.trim()) return text;
+            const regex = new RegExp(`(${escapeRegExp(query.trim())})`, 'gi');
+            return text.replace(regex, '<mark class="bg-brand-accent/30 text-brand-evergreen px-0.5 rounded-sm">$1</mark>');
+        }
+
+        function renderFaq() {
+            const normalizedQuery = currentQuery.trim().toLowerCase();
+            const visibleItems = faqData.filter(item =>
+                item.question.toLowerCase().includes(normalizedQuery) ||
+                item.answer.toLowerCase().includes(normalizedQuery)
+            );
+
+            // Ensure openId is valid
+            if (openFaqId && !visibleItems.some(i => i.id === openFaqId)) {
+                openFaqId = visibleItems.length > 0 ? visibleItems[0].id : null;
+            }
+
+            let html = `
+                <div class="relative">
+                    <input type="search" id="faq-search" value="${currentQuery}" placeholder="Search FAQs..." 
+                           class="h-12 md:h-14 w-full appearance-none rounded-full border border-brand-evergreen/20 bg-white px-6 pr-12 text-[15px] md:text-base text-brand-evergreen placeholder:text-brand-evergreen/50 outline-none focus:border-brand-evergreen/40 focus:ring-2 focus:ring-brand-evergreen/10 transition-all shadow-sm" />
+                    ${currentQuery ? `
+                        <button id="faq-clear" class="absolute top-1/2 right-4 inline-flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full text-brand-evergreen/50 hover:bg-brand-soft-linen hover:text-brand-evergreen transition-colors">
+                            <svg class="h-4 w-4 md:h-5 md:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        </button>
+                    ` : ''}
+                </div>
+                <div class="flex flex-col gap-3 mt-4">
+            `;
+
+            if (visibleItems.length === 0) {
+                html += `<p class="px-2 py-8 text-center text-[14px] md:text-base text-brand-evergreen/50">No FAQs match your search.</p>`;
+            } else {
+                visibleItems.forEach(item => {
+                    const isOpen = item.id === openFaqId;
+                    html += `
+                        <div class="faq-item overflow-hidden rounded-2xl bg-white shadow-sm border border-brand-evergreen/5 transition-all duration-300" style="view-transition-name: faq-${item.id};">
+                            <button data-id="${item.id}" class="faq-toggle flex w-full items-start justify-between gap-4 px-6 md:px-8 py-5 md:py-6 text-left outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-inset">
+                                <span class="font-medium text-[15px] md:text-[17px] text-brand-evergreen leading-normal tracking-[-0.01em]">
+                                    ${highlightText(item.question, currentQuery)}
+                                </span>
+                                <svg class="faq-icon mt-1 h-5 w-5 shrink-0 text-brand-evergreen/50 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? 'rotate-180' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="faq-panel grid transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]" style="grid-template-rows: ${isOpen ? '1fr' : '0fr'};">
+                                <div class="overflow-hidden">
+                                    <div class="faq-inner-content px-6 md:px-8 pb-6 md:pb-8 text-[14px] md:text-[16px] text-brand-evergreen/70 leading-relaxed transition-all duration-300 transform ${isOpen ? 'opacity-100 translate-y-0 delay-75' : 'opacity-0 -translate-y-2'}">
+                                        ${highlightText(item.answer, currentQuery)}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            html += `</div>`;
+            faqRoot.innerHTML = html;
+
+            // Re-attach search listeners
+            const searchInput = document.getElementById('faq-search');
+            if (isFaqFocused) {
+                searchInput.focus();
+                const val = searchInput.value;
+                searchInput.setSelectionRange(val.length, val.length);
+            }
+
+            searchInput.addEventListener('focus', () => isFaqFocused = true);
+            searchInput.addEventListener('blur', () => isFaqFocused = false);
+
+            searchInput.addEventListener('input', (e) => {
+                currentQuery = e.target.value;
+                if (currentQuery.trim().length > 0) openFaqId = null;
+
+                if (document.startViewTransition) {
+                    document.startViewTransition(() => renderFaq());
+                } else {
+                    renderFaq();
+                }
+            });
+
+            const clearBtn = document.getElementById('faq-clear');
+            if (clearBtn) {
+                clearBtn.addEventListener('click', () => {
+                    currentQuery = "";
+                    if (document.startViewTransition) {
+                        document.startViewTransition(() => renderFaq());
+                    } else {
+                        renderFaq();
+                    }
+                });
+            }
+
+            // Re-attach toggle listeners (using direct DOM manipulation to allow CSS Grid transitions)
+            const toggles = document.querySelectorAll('.faq-toggle');
+            toggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const id = toggle.getAttribute('data-id');
+                    const isOpening = openFaqId !== id;
+                    openFaqId = isOpening ? id : null;
+
+                    const allItems = document.querySelectorAll('.faq-item');
+                    allItems.forEach(item => {
+                        const tBtn = item.querySelector('.faq-toggle');
+                        const tId = tBtn.getAttribute('data-id');
+                        const icon = item.querySelector('.faq-icon');
+                        const panel = item.querySelector('.faq-panel');
+                        const innerContent = item.querySelector('.faq-inner-content');
+
+                        if (tId === openFaqId) {
+                            icon.classList.add('rotate-180');
+                            panel.style.gridTemplateRows = '1fr';
+                            innerContent.classList.remove('opacity-0', '-translate-y-2');
+                            innerContent.classList.add('opacity-100', 'translate-y-0', 'delay-75');
+                        } else {
+                            icon.classList.remove('rotate-180');
+                            panel.style.gridTemplateRows = '0fr';
+                            innerContent.classList.add('opacity-0', '-translate-y-2');
+                            innerContent.classList.remove('opacity-100', 'translate-y-0', 'delay-75');
+                        }
+                    });
+                });
+            });
+        }
+
+        // Initial render
+        renderFaq();
+    </script>
+</body>
+
+</html>
